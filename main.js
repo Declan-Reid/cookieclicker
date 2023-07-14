@@ -1,4 +1,4 @@
-﻿/*
+/*
 All this code is copyright Orteil, 2013-2022.
 	-with some help, advice and fixes by Nicholas Laux, Debugbro, Opti, the folks at Playsaurus, and lots of people on reddit, Discord, and the DashNet forums
 	-also includes a bunch of snippets found on stackoverflow.com and others
@@ -2397,8 +2397,6 @@ Game.Launch=function()
 				func=function(str){return function(){return str;};}(str);
 			}
 			origin=(origin?origin:'middle');
-			AddEvent(el,'mouseover',function(func,el,origin){return function(){Game.tooltip.dynamic=1;Game.tooltip.draw(el,func,origin);};}(func,el,origin));
-			AddEvent(el,'mouseout',function(){return function(){Game.tooltip.shouldHide=1;};}());
 		}
 		Game.tooltip.wobble=function()
 		{
@@ -2501,15 +2499,6 @@ Game.Launch=function()
 			
 			Game.attachTooltip(l('topbarOrteil'),'<div style="padding:8px;width:250px;text-align:center;">Back to Orteil\'s subdomain!<br>Lots of other games in there!</div>'+tinyIcon([17,5],'display:block;margin:-12px auto;'),'this');
 			Game.attachTooltip(l('topbarDashnet'),'<div style="padding:8px;width:250px;text-align:center;">Back to our homepage!</div>','this');
-			Game.attachTooltip(l('topbarTwitter'),'<div style="padding:8px;width:250px;text-align:center;">Orteil\'s twitter, which frequently features game updates.</div>','this');
-			Game.attachTooltip(l('topbarTumblr'),'<div style="padding:8px;width:250px;text-align:center;">Orteil\'s tumblr, which frequently features game updates.</div>','this');
-			Game.attachTooltip(l('topbarDiscord'),'<div style="padding:8px;width:250px;text-align:center;">Our official discord server.<br>You can share tips and questions about Cookie Clicker and all our other games!</div>','this');
-			Game.attachTooltip(l('topbarPatreon'),'<div style="padding:8px;width:250px;text-align:center;">Support us on Patreon and help us keep updating Cookie Clicker!<br>There\'s neat rewards for patrons too!</div>','this');
-			Game.attachTooltip(l('topbarMerch'),'<div style="padding:8px;width:250px;text-align:center;">Cookie Clicker shirts, hoodies and stickers!</div>','this');
-			Game.attachTooltip(l('topbarMobileCC'),'<div style="padding:8px;width:250px;text-align:center;">Play Cookie Clicker on your phone!<br>(Android only; iOS version will be released later)</div>','this');
-			Game.attachTooltip(l('topbarSteamCC'),'<div style="padding:8px;width:250px;text-align:center;">Get Cookie Clicker on Steam!<br>Featuring music by C418.</div>','this');
-			Game.attachTooltip(l('topbarRandomgen'),'<div style="padding:8px;width:250px;text-align:center;">A thing we made that lets you write random generators.</div>','this');
-			Game.attachTooltip(l('topbarIGM'),'<div style="padding:8px;width:250px;text-align:center;">A thing we made that lets you create your own idle games using a simple scripting language.</div>','this');
 			l('changeLanguage').innerHTML=loc("Change language");
 			l('links').childNodes[0].nodeValue=loc("Other versions");
 			//l('linkVersionBeta').innerHTML=loc("Beta");
@@ -2537,21 +2526,6 @@ Game.Launch=function()
 			
 			return '<div style="padding:8px;width:300px;text-align:center;" class="prompt" id="tooltipHeralds"><h3>'+loc("Heralds")+'</h3><div class="block">'+str+'</div></div>';
 		},'this');
-		l('heraldsAmount').textContent='?';
-		l('heralds').style.display='inline-block';
-		if (App)
-		{
-			l('heralds').style.paddingTop='4px';
-			l('heralds').style.position='absolute';
-			l('heralds').style.top='0px';
-			l('heralds').style.right='0px';
-			l('heralds').style.width='28px';
-			l('heralds').style.textAlign='center';
-			l('leftBeam').appendChild(l('heralds'));
-			
-			l('buffs').style.top='16px';
-		}
-		
 		Game.GrabData();
 		
 		
